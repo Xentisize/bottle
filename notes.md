@@ -2,7 +2,8 @@
 
 ## Import module(s)
 
-- sys
+- sys: importing stdout and stderr for redirection <line 119>  
+   exit signal (exit(1): Exit with errors, exit(0): Exit without errors) <line 4369>
 - argparse.ArgumentParser: setting up the cli of the program
 - base64
 - cgi
@@ -47,11 +48,18 @@
 - configparser
 
 ## Constants
-- __author___ = 'Marcel Hellkamp'
-- __version__ = '0.13-dev'
-- __license__ = 'MIT'
+
+- \_\_author\_\_ = 'Marcel Hellkamp'
+- \_\_version\_\_ = '0.13-dev'
+- \_\_license\_\_ = 'MIT'
+
+## Pre-defined functions
+
+- \_stdout: alias to stdout
+- \_stderr: alias to stderr
 
 ## Exceptions
+
 - BottleException(Exception)
 - RouteError(BottleException): all routing related exceptions
   - RouterUnknownModeError(RouteError)
@@ -59,6 +67,13 @@
   - RouteBuildError(RouteError): route can't be built
 - RouteReset(BottleException): plugin or request handler
 
+## Classes
+
+- ConfigDict(dict) <line 2330>
+
 ## Running Flow
-1. _main(sys.argv: []) -> None
-2. 
+
+1. \_main(sys.argv: []) -> None <line 4363>  
+   1.1 \_cli_parse(args: []) -> (argparse.Namespace, argparse.ArgumentParser) : parse the cli options and return arguments and the parser  
+   1.2 add `bottle` or `__main__` into the imported modules dict  
+   ? <line 4381> What is purpose of host.rfind(']') < host.rfind(':')
